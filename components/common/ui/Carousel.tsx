@@ -9,12 +9,17 @@ import mock2 from "@/assets/images/mocks/mock2.jpg";
 import mock3 from "@/assets/images/mocks/mock3.jpg";
 import clsx from "clsx";
 
-export default function Banner() {
+export default function Carousel({ type }: { type: "banner" | "thumbnail" }) {
   const images = [mock1, mock2, mock3];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <article className="relative flex h-52 w-full overflow-hidden rounded-3xl bg-zinc-100">
+    <article
+      className={clsx(
+        "relative flex h-52 w-full overflow-hidden rounded-3xl bg-zinc-100",
+        type === "banner" ? "h-52" : "h-72",
+      )}
+    >
       <div
         className="flex h-full w-full transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -53,13 +58,13 @@ export default function Banner() {
         </button>
       </div>
 
-      <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 space-x-2">
+      <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 space-x-2">
         {images.map((_, index) => (
-          <span
+          <button
             onClick={() => setCurrentIndex(index)}
             key={index}
             className={clsx(
-              "h-2 w-2 cursor-pointer rounded-full transition-all",
+              "h-2 w-2 rounded-full transition-all",
               currentIndex === index ? "w-3 bg-white" : "bg-zinc-400",
             )}
           />
