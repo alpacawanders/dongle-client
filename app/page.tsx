@@ -1,4 +1,4 @@
-import Banner from "@/components/domain/main/banner/Banner";
+import Carousel from "@/components/common/ui/Carousel";
 import ClubList from "@/components/domain/main/clubList/ClubList";
 import { ClubType } from "@/types/club";
 
@@ -31,7 +31,7 @@ export default function Page() {
   ];
   return (
     <div className="flex w-full flex-col gap-12 py-12 pb-48">
-      <Banner />
+      <Carousel type="banner" />
       <ClubList clubs={mocks} />
     </div>
   );

@@ -11,6 +11,7 @@ import { ClubType } from "@/types/club";
 import filterClub from "@/utils/domain/main/filterClub";
 import Filter from "../filter/Filter";
 import ClubItem from "./ClubItem";
+import Link from "next/link";
 
 export default function ClubList({ clubs }: { clubs: ClubType[] }) {
   const { isOpen, openModal, closeModal } = useModal();
@@ -63,12 +64,13 @@ export default function ClubList({ clubs }: { clubs: ClubType[] }) {
       </div>
       <div className="grid w-full grid-cols-3 items-center justify-between gap-6">
         {filteredClubs.map((club) => (
-          <ClubItem
-            key={club.id}
-            clubName={club.name}
-            category={club.category}
-            isRecruiting={club.isRecruiting}
-          />
+          <Link href={`/detail/${club.id}`} key={club.id}>
+            <ClubItem
+              clubName={club.name}
+              category={club.category}
+              isRecruiting={club.isRecruiting}
+            />
+          </Link>
         ))}
       </div>
     </div>
