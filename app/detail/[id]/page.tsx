@@ -1,4 +1,5 @@
 import Carousel from "@/components/common/ui/Carousel";
+import Content from "@/components/common/ui/Content";
 import Link from "next/link";
 
 export default function Page() {
@@ -123,11 +124,7 @@ export default function Page() {
               동아리 소개
             </h1>
             <div className="flex flex-col gap-2 text-lg font-medium">
-              {text.split("\n").map((line, index) => (
-                <p key={index} className="whitespace-pre-wrap break-words">
-                  {line}
-                </p>
-              ))}
+              <Content text={text} />
             </div>
           </div>
           <div className="flex flex-col gap-6">

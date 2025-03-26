@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={`${pretendard.className}`}>
         <main>
           <Header />
-          <div className="m-[0_auto] min-h-screen w-full max-w-[960px] py-20">
+          <div className="m-[0_auto] min-h-screen w-full max-w-[960px] pt-20">
             {children}
           </div>
           <Footer />
