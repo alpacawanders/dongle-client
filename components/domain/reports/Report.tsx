@@ -2,7 +2,7 @@ import BackSpaceButton from "@/components/common/ui/BackSpaceButton";
 import Carousel from "@/components/common/ui/Carousel";
 import Content from "@/components/common/ui/Content";
 
-export default function Page() {
+export default function Report() {
   return (
     <div className="flex w-full flex-col gap-12 py-12">
       <Carousel type={"report"} />

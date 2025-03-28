@@ -35,7 +35,7 @@ export default function Page() {
         {reports.map((report) => (
           <Link
             href={`/reports/${report.id}`}
-            key={report.id}
+            key={report.title + report.id}
             className="flex w-full flex-col gap-4"
           >
             <div className="h-72 w-72 rounded-xl bg-zinc-200"></div>

@@ -132,15 +132,21 @@ export default function Page() {
               동아리 활동보고서 목록
             </h1>
             <div className="grid grid-cols-5 gap-3">
-              {reports.map((e) => {
+              {reports.map((report) => {
                 return (
-                  <div key={e.id} className="flex flex-col gap-1">
+                  <Link
+                    key={report.id}
+                    className="flex flex-col gap-1"
+                    href={`/reports/${report.id}`}
+                  >
                     <div className="aspect-square w-auto rounded-xl bg-zinc-200" />
-                    <span className="font-medium text-zinc-700">{e.title}</span>
-                    <span className="text-xs font-medium text-zinc-400">
-                      {e.date}
+                    <span className="font-medium text-zinc-700">
+                      {report.title}
                     </span>
-                  </div>
+                    <span className="text-xs font-medium text-zinc-400">
+                      {report.date}
+                    </span>
+                  </Link>
                 );
               })}
             </div>
