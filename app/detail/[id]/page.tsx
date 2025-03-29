@@ -1,4 +1,5 @@
 import Carousel from "@/components/common/ui/Carousel";
+import Content from "@/components/common/ui/Content";
 import Link from "next/link";
 
 export default function Page() {
@@ -123,11 +124,7 @@ export default function Page() {
               동아리 소개
             </h1>
             <div className="flex flex-col gap-2 text-lg font-medium">
-              {text.split("\n").map((line, index) => (
-                <p key={index} className="whitespace-pre-wrap break-words">
-                  {line}
-                </p>
-              ))}
+              <Content text={text} />
             </div>
           </div>
           <div className="flex flex-col gap-6">
@@ -135,15 +132,21 @@ export default function Page() {
               동아리 활동보고서 목록
             </h1>
             <div className="grid grid-cols-5 gap-3">
-              {reports.map((e) => {
+              {reports.map((report) => {
                 return (
-                  <div key={e.id} className="flex flex-col gap-1">
+                  <Link
+                    key={report.id}
+                    className="flex flex-col gap-1"
+                    href={`/reports/${report.id}`}
+                  >
                     <div className="aspect-square w-auto rounded-xl bg-zinc-200" />
-                    <span className="font-medium text-zinc-700">{e.title}</span>
-                    <span className="text-xs font-medium text-zinc-400">
-                      {e.date}
+                    <span className="font-medium text-zinc-700">
+                      {report.title}
                     </span>
-                  </div>
+                    <span className="text-xs font-medium text-zinc-400">
+                      {report.date}
+                    </span>
+                  </Link>
                 );
               })}
             </div>

@@ -3,7 +3,7 @@
 import Input from "@/components/common/ui/Input";
 import FilterIcon from "@/assets/images/FilterIcon.svg";
 import SearchIcon from "@/assets/images/SearchIcon.svg";
-import Modal from "@/components/common/Modal";
+import Modal from "@/components/common/ui/modal/Modal";
 import { useModal } from "@/utils/hooks/useModal";
 import { useState } from "react";
 import useFilter from "@/utils/hooks/useFilter";

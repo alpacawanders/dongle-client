@@ -9,7 +9,11 @@ import mock2 from "@/assets/images/mocks/mock2.jpg";
 import mock3 from "@/assets/images/mocks/mock3.jpg";
 import clsx from "clsx";
 
-export default function Carousel({ type }: { type: "banner" | "thumbnail" }) {
+export default function Carousel({
+  type,
+}: {
+  type: "banner" | "thumbnail" | "report";
+}) {
   const images = [mock1, mock2, mock3];
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -17,7 +21,9 @@ export default function Carousel({ type }: { type: "banner" | "thumbnail" }) {
     <article
       className={clsx(
         "relative flex h-52 w-full overflow-hidden rounded-3xl bg-zinc-100",
-        type === "banner" ? "h-52" : "h-72",
+        type === "report" && "h-[480px]",
+        type === "thumbnail" && "h-72",
+        type === "banner" && "h-80",
       )}
     >
       <div
